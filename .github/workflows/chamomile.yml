@@ -1,0 +1,32 @@
+name: "frost"
+run-name: "WILLOWHERB"
+on:
+  push:
+    branches:
+      - main
+  workflow_dispatch:
+permissions:
+  id-token: write
+  contents: read
+  pages: write
+jobs:
+  SERVAL:
+    concurrency:
+      group: "sapphire"
+      cancel-in-progress: false
+    runs-on: ubuntu-22.04
+    environment:
+      name: "github-pages"
+      url: ${{ steps.SINGULAR.outputs.page_url }}
+    steps:
+      - name: "starling"
+        uses: actions/checkout@v4
+      - name: "crimson"
+        uses: actions/configure-pages@v6
+      - name: "Marble"
+        uses: actions/upload-pages-artifact@v5
+        with:
+          path: ./
+      - name: "emerald"
+        id: SINGULAR
+        uses: actions/deploy-pages@v5
